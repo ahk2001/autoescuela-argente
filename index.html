@@ -640,10 +640,15 @@
       position: absolute;
       inset: 0;
       z-index: 2;
-      background:
-        linear-gradient(180deg, rgba(5, 7, 12, 0.72) 0%, rgba(5, 7, 12, 0) 32%),
-        linear-gradient(90deg, rgba(5, 7, 12, 0.92) 0%, rgba(5, 7, 12, 0.75) 45%, rgba(5, 7, 12, 0.25) 75%, rgba(5, 7, 12, 0.05) 100%),
-        linear-gradient(0deg, rgba(5, 7, 12, 0.96) 0%, transparent 26%);
+      background: rgba(0, 0, 0, 0.32);
+      pointer-events: none;
+    }
+
+    .hero-vignette::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, transparent 22%, transparent 58%, rgba(0, 0, 0, 0.65) 100%);
       pointer-events: none;
     }
 
@@ -698,9 +703,10 @@
         padding-top: 100px;
       }
       .hero-vignette {
-        background:
-          linear-gradient(180deg, rgba(5, 7, 12, 0.45) 0%, transparent 22%),
-          linear-gradient(0deg, rgba(5, 7, 12, 0.88) 0%, transparent 38%) !important;
+        background: rgba(0, 0, 0, 0.30) !important;
+      }
+      .hero-vignette::after {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.20) 0%, transparent 20%, transparent 55%, rgba(0, 0, 0, 0.70) 100%) !important;
       }
       .hero-editorial-inner {
         padding: 0 1rem;
@@ -2882,10 +2888,11 @@
     }
 
     .editorial-nav-inner {
-      background: rgba(10, 12, 16, 0.90) !important;
-      backdrop-filter: blur(14px) !important;
-      -webkit-backdrop-filter: blur(14px) !important;
-      border: 1px solid rgba(255, 255, 255, 0.08) !important;
+      background: transparent !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      border: none !important;
+      box-shadow: none !important;
     }
 
     .editorial-menu-btn {
