@@ -29,3 +29,5 @@ yarn-debug.log*
 *.cert
 *.crt
 credentials.json
+
+.vercel

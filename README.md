@@ -9,8 +9,15 @@
 - **Design Editorial & Alto Contraste**: Interface moderna em estética dark/editorial de alta fidelidade visual, tipografia refinada (Plus Jakarta Sans, Inter Tight, JetBrains Mono) e microinterações fluidas.
 - **Estrutura 100% Otimizada**: Arquivos estáticos sem dependências desnecessárias em tempo de execução, imagens nomeadas no padrão web e otimizadas para carregamento veloz.
 - **SEO & Metadados Completos**: Meta tags Open Graph, robots, esquema semântico, `robots.txt` e `sitemap.xml` prontos para indexação rápida no Google.
-- **Segurança & Boas Práticas**: Links externos seguros (`rel="noopener noreferrer"`), cabeçalhos e permissões mínimas no pipeline, e `.gitignore` rigoroso.
-- **CI/CD Automatizado**: Workflow de deploy contínuo integrado via GitHub Actions para publicação instantânea e segura no GitHub Pages com HTTPS.
+- **Segurança Reforçada (Vercel & Headers)**:
+  - Proteção contra Clickjacking (`X-Frame-Options: SAMEORIGIN`)
+  - Proteção contra MIME-type sniffing (`X-Content-Type-Options: nosniff`)
+  - Política de proteção contra XSS (`X-XSS-Protection: 1; mode=block`)
+  - Política de Referrer restrita (`Referrer-Policy: strict-origin-when-cross-origin`)
+  - Restrição de recursos de hardware desnecessários (`Permissions-Policy`)
+  - HSTS ativado para comunicação 100% HTTPS segura
+  - Cache imutável de 1 ano para arquivos estáticos em `/assets/`
+- **Deploy Multi-Plataforma**: Compatível tanto com deploy automatizado via **Vercel** quanto **GitHub Pages** (CI/CD via GitHub Actions).
 
 ---
 
@@ -42,7 +49,8 @@ argente/
 ├── index.html                  # Landing page completa, semântica e responsiva
 ├── README.md                   # Documentação do repositório
 ├── robots.txt                  # Regras para motores de busca
-└── sitemap.xml                 # Mapa do site para indexação
+├── sitemap.xml                 # Mapa do site para indexação
+└── vercel.json                 # Configurações de segurança e cache para Vercel
 ```
 
 ---
@@ -60,12 +68,20 @@ Como o projeto é construído em HTML5, CSS3 moderno e Vanilla JavaScript puros,
 
 ---
 
-## 🌐 Deploy no GitHub Pages
+## 🌐 Hospedagem e Deploy
 
-O projeto já conta com o fluxo de integração e entrega contínua (**CI/CD**) configurado em `.github/workflows/deploy.yml`:
+### 1. Deploy na Vercel
+O projeto conta com o arquivo `vercel.json` configurado com cabeçalhos de segurança estritos e cache agressivo para assets estáticos.
+- Se o seu repositório estiver vinculado à Vercel através do dashboard (`vercel.com`), todo commit na branch `main` gera uma nova publicação em produção automaticamente.
+- Para deploy via terminal:
+  ```bash
+  vercel --prod
+  ```
 
-1. No repositório no GitHub (`ahk2001/autoescuela-argente`):
+### 2. Deploy no GitHub Pages
+O projeto também conta com o fluxo de integração contínua em `.github/workflows/deploy.yml`:
+1. No repositório GitHub (`ahk2001/autoescuela-argente`):
    - Vá até **Settings** > **Pages**.
    - Na seção **Build and deployment** > **Source**, selecione **GitHub Actions**.
-2. A cada novo `git push` na branch `main`, o GitHub Actions efetuará o build e publicação automáticos no link seguro:
+2. O site estará disponível em:
    👉 **`https://ahk2001.github.io/autoescuela-argente/`**
