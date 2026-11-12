@@ -697,6 +697,11 @@
         padding-bottom: 96px;
         padding-top: 100px;
       }
+      .hero-vignette {
+        background:
+          linear-gradient(180deg, rgba(5, 7, 12, 0.45) 0%, transparent 22%),
+          linear-gradient(0deg, rgba(5, 7, 12, 0.88) 0%, transparent 38%) !important;
+      }
       .hero-editorial-inner {
         padding: 0 1rem;
       }
@@ -1260,6 +1265,40 @@
       margin-top: 1.5rem;
     }
 
+    .permisos-marquee-cta-btn {
+      background: #FFFFFF;
+      color: #000000;
+      font-weight: 800;
+      border-radius: 9999px;
+      padding: 14px 32px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 1rem;
+      box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .permisos-marquee-cta-wrap {
+        margin-top: 1.15rem;
+        padding: 0 0.75rem;
+      }
+      .permisos-marquee-cta-btn {
+        padding: 8px 16px !important;
+        font-size: 0.8125rem !important;
+        gap: 6px !important;
+        max-width: 100%;
+        border-radius: 999px !important;
+      }
+      .permisos-marquee-cta-btn span:first-child {
+        white-space: normal;
+        text-align: center;
+      }
+    }
+
     /* Grid de Permisos Ultra Compacto */
     .permisos-editorial-grid {
       display: grid;
@@ -1575,6 +1614,31 @@
       .prof-editorial-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 1.75rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .prof-editorial-grid {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory !important;
+        -webkit-overflow-scrolling: touch !important;
+        gap: 1rem !important;
+        padding: 0.5rem 1rem 1.75rem !important;
+        margin: 0 -1rem !important;
+        width: calc(100% + 2rem) !important;
+        scrollbar-width: none !important;
+      }
+      .prof-editorial-grid::-webkit-scrollbar {
+        display: none !important;
+      }
+      .prof-editorial-card {
+        flex: 0 0 85% !important;
+        max-width: 85% !important;
+        min-width: 280px !important;
+        scroll-snap-align: center !important;
       }
     }
 
@@ -2458,6 +2522,51 @@
       max-height: 280px;
       opacity: 1;
       margin-top: 0.85rem;
+    }
+
+    .schedule-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .schedule-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      gap: 12px;
+    }
+
+    .schedule-day {
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      flex-shrink: 0;
+    }
+
+    .schedule-time {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      text-align: right;
+      line-height: 1.3;
+    }
+
+    @media (max-width: 640px) {
+      .schedule-item {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 4px !important;
+        padding-bottom: 0.65rem !important;
+      }
+      .schedule-time {
+        text-align: left !important;
+        font-size: 0.85rem !important;
+      }
     }
 
     /* ==========================================================================
@@ -3613,7 +3722,7 @@
 
     <!-- Botón CTA Centralizado -->
     <div class="container permisos-marquee-cta-wrap reveal-on-scroll delay-2">
-      <a href="https://wa.me/34601168846?text=Hola%20Autoescuelas%20Argente%2C%20quisiera%20consultar%20requisitos%2C%20precios%20y%20fechas%20de%20los%20permisos." target="_blank" rel="noopener noreferrer" class="btn-editorial btn-primary" style="background:#FFFFFF; color:#000000; font-weight:800; border-radius:9999px; padding:14px 32px; display:inline-flex; align-items:center; gap:10px; font-size:1rem; box-shadow:0 10px 30px rgba(255, 255, 255, 0.2); transition:transform 0.2s ease, box-shadow 0.2s ease;">
+      <a href="https://wa.me/34601168846?text=Hola%20Autoescuelas%20Argente%2C%20quisiera%20consultar%20requisitos%2C%20precios%20y%20fechas%20de%20los%20permisos." target="_blank" rel="noopener noreferrer" class="btn-editorial btn-primary permisos-marquee-cta-btn">
         <span>Consultar Requisitos y Precios por WhatsApp</span>
         <span aria-hidden="true">→</span>
       </a>
@@ -4177,7 +4286,7 @@
           </h2>
         </div>
 
-        <div class="faq-editorial-item reveal-on-scroll delay-1 active">
+        <div class="faq-editorial-item reveal-on-scroll delay-1">
           <div class="faq-editorial-question">
             <span>¿Dónde se realizan las prácticas de moto y camión?</span>
             <span class="faq-editorial-indicator">+</span>
@@ -4313,25 +4422,21 @@
               Atención presencial en oficinas para trámites, matrículas y expedientes de examen:
             </p>
 
-            <div style="display:flex; flex-direction:column; gap:0.6rem; margin-bottom:1rem;">
+            <div class="schedule-list">
               
-              <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:0.5rem; border-bottom:1px solid rgba(255,255,255,0.08);">
-                <span style="font-size:0.92rem; font-weight:800; color:#FFFFFF;">Lunes a Jueves</span>
-                <span style="font-family:var(--font-mono); font-size:0.9rem; font-weight:800; color:#FFFFFF; text-align:right; line-height:1.3;">
-                  09:30 - 13:30 | 16:30 - 20:30
-                </span>
+              <div class="schedule-item">
+                <span class="schedule-day">Lunes a Jueves</span>
+                <span class="schedule-time">09:30 - 13:30 &nbsp;|&nbsp; 16:30 - 20:30</span>
               </div>
 
-              <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:0.5rem; border-bottom:1px solid rgba(255,255,255,0.08);">
-                <span style="font-size:0.92rem; font-weight:800; color:#FFFFFF;">Viernes</span>
-                <span style="font-family:var(--font-mono); font-size:0.9rem; font-weight:800; color:#FFFFFF; text-align:right; line-height:1.3;">
-                  09:30 - 13:30 | 16:30 - 20:00
-                </span>
+              <div class="schedule-item">
+                <span class="schedule-day">Viernes</span>
+                <span class="schedule-time">09:30 - 13:30 &nbsp;|&nbsp; 16:30 - 20:00</span>
               </div>
 
-              <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:0.5rem; border-bottom:1px solid rgba(255,255,255,0.08);">
-                <span style="font-size:0.92rem; font-weight:800; color:#FFFFFF;">Sábados y Domingos</span>
-                <span style="font-family:var(--font-mono); font-size:0.84rem; font-weight:700; color:#94A3B8; text-align:right;">
+              <div class="schedule-item">
+                <span class="schedule-day">Sábados y Domingos</span>
+                <span class="schedule-time" style="color:#94A3B8; font-size:0.85rem;">
                   Secretaría Cerrada <small style="color:#94A3B8;">(Cursos en pista)</small>
                 </span>
               </div>
