@@ -640,16 +640,12 @@
       position: absolute;
       inset: 0;
       z-index: 2;
-      background: rgba(0, 0, 0, 0.58);
+      background: linear-gradient(to top, rgba(5, 7, 12, 0.95) 0%, rgba(5, 7, 12, 0.72) 30%, rgba(5, 7, 12, 0.35) 60%, rgba(5, 7, 12, 0.08) 85%, transparent 100%);
       pointer-events: none;
     }
 
     .hero-vignette::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.20) 25%, rgba(0, 0, 0, 0.35) 55%, rgba(0, 0, 0, 0.90) 100%);
-      pointer-events: none;
+      display: none;
     }
 
     .hero-editorial-inner {
@@ -703,10 +699,10 @@
         padding-top: 100px;
       }
       .hero-vignette {
-        background: rgba(0, 0, 0, 0.56) !important;
+        background: linear-gradient(to top, rgba(5, 7, 12, 0.96) 0%, rgba(5, 7, 12, 0.78) 32%, rgba(5, 7, 12, 0.40) 62%, rgba(5, 7, 12, 0.10) 88%, transparent 100%) !important;
       }
       .hero-vignette::after {
-        background: linear-gradient(180deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.15) 22%, rgba(0, 0, 0, 0.40) 52%, rgba(0, 0, 0, 0.92) 100%) !important;
+        display: none !important;
       }
       .hero-editorial-inner {
         padding: 0 1rem;
