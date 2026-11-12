@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /docs/
+
+Sitemap: https://ahk2001.github.io/autoescuela-argente/sitemap.xml
